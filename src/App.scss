@@ -1,0 +1,40 @@
+@import '~include-media/dist/include-media';
+@import '~open-color/open-color';
+
+$backColor: #282c34;
+$linkColor: #61dafb;
+
+.App {
+    text-align: center;    
+    &-logo {
+        animation: App-logo-spin infinite 20s linear;
+        height: 40vmin;
+        pointer-events: none;
+    }
+    &-header {
+        background-color: $backColor;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        font-size: calc(10px + 2vmin);
+        color: white;
+        transition: 1s;
+        @include media(">phone", "<=tablet"){
+            background-color: $oc-cyan-8;
+        }
+    }
+    &-link {
+        color: $linkColor;
+    }
+    @keyframes App-logo-spin {
+        from {
+            transform: rotate(0deg);
+        }
+        to {
+            transform: rotate(360deg);
+        }
+    }
+    
+}

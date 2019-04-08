@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
-import './App.css';
+import './App.scss';
 
 class App extends Component {
   state = {
@@ -43,22 +43,17 @@ class App extends Component {
     return body;
   }
 
+  _renderPortfolios = () => {
+    // const portfolios = this.state.portfolios.map((portfolios, index) => {
+    //   return <Portfolio title={portfolios.title}/>
+    // });
+  }
+
   render() {
     return (
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
           {/* Render the newly fetched data inside of this.state.data */}
           <p className="App-intro">{this.state.data}</p>
           <p className="App-Company">name: {this.state.companyInfo.name}</p>
