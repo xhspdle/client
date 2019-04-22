@@ -33,14 +33,15 @@ class SlideShow extends Component {
         dots[slideIndex-1].className += " active";
     }
     render(){
-        const { images } = this.props.images;
-        const length = Object.keys(images).length;
+        //const { images } = this.props.images; 이렇게하면 에러남 공부해야댐
+        const images = this.props.images;
+        console.log('slideshow images: ' + images);
         return (
             <React.Fragment>
                 <div className="SlideContainer">
-                    {Object.keys(images).map((images, index) => {
+                    {Object.keys(images).map((array, index) => {
                         return (
-                            <Slides images={images} i={index} length={length}/>
+                            <Slides images={array.pic_id} ext={array.pic_extension} i={index} length={3}/>
                         );
                     })}
                     {/* <Slides images={images} i={this.props.i} length={this.props.length}/> */}
@@ -58,10 +59,11 @@ class SlideShow extends Component {
 }
 
 const Slides = (props) => {
+    console.log('props: ' + props.images + '.' + props.ext);
     return (
         <div className="Slides fade">
             <div className="numbertext">{props.i} / {props.length}</div>
-            <img src={props.images} alt={"slide" + props.i}/>
+            <img src={require(`../../static/img/${props.images}.${props.pic_extension}`)} alt={"slide" + props.i}/>
             <div className="text">{"Caption " + props.i}</div>
         </div>
     );
