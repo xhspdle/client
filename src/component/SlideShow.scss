@@ -11,16 +11,23 @@ $linkColor: #61dafb;
 .SlideContainer {
     @extend %box;
     width: 40vmin;
+    height: 60vmin;
     position: relative;
     //margin: auto;
     /* Hide the images by default */
     .Slides {
         @extend %box;
         display: none;
+        width: 100%;
+        height: 100%;
         img {
             @extend %box;
-            width: 40vmin;
-            height: 40vmin;
+            position: relative;
+            width: 100%;
+            max-height: 85%;
+            top: 50%;
+            transform: translateY(-50%);
+            //height: 40vmin;
         }
     }
     /* Next & previous buttons */
@@ -42,6 +49,9 @@ $linkColor: #61dafb;
         border: 0;
         &:hover {
             background-color: rgba(0,0,0,0.8);
+        }
+        &:focus {
+            outline-width: 0px;
         }
     }
     /* Position the "next button" to the right */
@@ -66,16 +76,16 @@ $linkColor: #61dafb;
     /* Number text (1/3 etc) */
     .numbertext {
         @extend %box;
-        color: black;//#f2f2f2;
+        color: #f2f2f2;//black;
         font-size: 12px;
         padding: 8px 12px;
         position: absolute;
         top: 0;
+        left: 50%;
+        transform: translateX(-50%);
     }
     /* Fading animation */
     .fade {
-        -webkit-animation-name: fade;
-        -webkit-animation-duration: 1.5s;
         animation-name: fade;
         animation-duration: 1.5s;
     }
@@ -98,12 +108,12 @@ $linkColor: #61dafb;
         height: 15px;
         width: 15px;
         margin: 0 2px;
-        background-color: #bbb;
+        background-color: #717171;
         border-radius: 50%;
         display: inline-block;
         transition: background-color 0.6s ease;
     }
     .active, .dot:hover {
-        background-color: #717171;
+        background-color: #bbb;
     }
 }

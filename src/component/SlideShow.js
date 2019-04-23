@@ -42,8 +42,8 @@ class SlideShow extends Component {
         dots[slideIndex-1].className += " active";
     }
     render(){
-        //const { images } = this.props.images; 이렇게하면 에러남 공부해야댐
-        const images = this.props.images;
+        //const { images } = this.props.images; 이렇게하면 에러남 비구조화할당
+        const { images } = this.props;
         console.log('slideshow images: ' + images);
         return (
             <React.Fragment>
@@ -57,7 +57,6 @@ class SlideShow extends Component {
                     <button className="prev" onClick={(e) => this._plusSlides(-1, e)}>&#10094;</button>
                     <button className="next" onClick={(e) => this._plusSlides(1, e)}>&#10095;</button>
                 </div>
-                <br/>
                 <div className="slide-dot">
                     {images.map((array, index) => {
                        return (
