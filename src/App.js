@@ -1,16 +1,8 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.scss';
-import { List, Record } from 'immutable';
+//import { List, Record } from 'immutable';
 import SlideShow from './component/SlideShow';
-
-function importAll(r){
-  let images = {};
-  r.keys().map((item, index) => {
-    return images[item.replace('./', '')] = r(item);
-  });
-  return images;
-}
 class App extends Component {
   state = {
     express: null,
@@ -60,7 +52,7 @@ class App extends Component {
   _renderSlideShow = () => {
     const { images } = this.state;
     console.log(images);
-    return <SlideShow images={images}/>;
+    return <SlideShow key={0} images={images}/>;
   }
 
   render() {

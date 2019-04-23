@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import './SlideShow.scss';
 
 var slideIndex = 1;
 
@@ -6,6 +8,13 @@ class SlideShow extends Component {
     static defaultProps = {
         images: null
     }
+    static propTypes = {
+        images: PropTypes.array.isRequired
+    }
+    state = {
+        isLoading: false
+    }
+
     componentDidMount() {
         this._showSlides(slideIndex);
     }
@@ -24,10 +33,10 @@ class SlideShow extends Component {
         if(n > slides.length){ slideIndex = 1 }
         if(n < 1) { slideIndex = slides.length }
         for(i = 0; i < slides.length; i++){
-        slides[i].style.display = "none";
+            slides[i].style.display = "none";
         }
         for(i = 0; i < dots.length; i++){
-        dots[i].className = dots[i].className.replace(" active", "");
+            dots[i].className = dots[i].className.replace(" active", "");
         }
         slides[slideIndex-1].style.display = "block";
         dots[slideIndex-1].className += " active";
@@ -39,19 +48,22 @@ class SlideShow extends Component {
         return (
             <React.Fragment>
                 <div className="SlideContainer">
-                    {Object.keys(images).map((array, index) => {
+                    {images.map((array, index) => {
                         return (
-                            <Slides images={array.pic_id} ext={array.pic_extension} i={index} length={3}/>
+                            <Slides key={index} images={array.pic_id} ext={array.pic_extension} i={index} length={images.length}/>
                         );
                     })}
-                    {/* <Slides images={images} i={this.props.i} length={this.props.length}/> */}
                     {/* Next and previous buttons */}
                     <button className="prev" onClick={(e) => this._plusSlides(-1, e)}>&#10094;</button>
                     <button className="next" onClick={(e) => this._plusSlides(1, e)}>&#10095;</button>
                 </div>
                 <br/>
                 <div className="slide-dot">
-                    <Dots i={this.props.i}/>
+                    {images.map((array, index) => {
+                       return (
+                        <span key={index} className="dot" onClick={(e) => this._currentSlide(index+1, e)}></span>
+                       );
+                    })}
                 </div>
             </React.Fragment>
         );
@@ -62,18 +74,10 @@ const Slides = (props) => {
     console.log('props: ' + props.images + '.' + props.ext);
     return (
         <div className="Slides fade">
-            <div className="numbertext">{props.i} / {props.length}</div>
-            <img src={require(`../../static/img/${props.images}.${props.pic_extension}`)} alt={"slide" + props.i}/>
-            <div className="text">{"Caption " + props.i}</div>
+            <div className="numbertext">{props.i+1} / {props.length}</div>
+            <img src={require(`../../static/img/${props.images}.${props.ext}`)} alt={"slide" + props.i+1}/>
+            <div className="text">{"Caption " + parseInt(props.i+1)}</div>
         </div>
-    );
-}
-
-const Dots = (props) => {
-    return (
-        <React.Fragment>
-            <span className="dot" onClick={(e) => this._currentSlide(props.i, e)}></span>
-        </React.Fragment>
     );
 }
 
