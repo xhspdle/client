@@ -3,6 +3,8 @@ import logo from './logo.svg';
 import './App.scss';
 //import { List, Record } from 'immutable';
 import SlideShow from './component/SlideShow';
+import ShrinkNavbar from './component/ShrinkNavbar';
+
 class App extends Component {
   state = {
     // express: null,
@@ -59,17 +61,20 @@ class App extends Component {
   render() {
     const { images, companyInfo, express } = this.state;
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          {/* Render the newly fetched data inside of this.state.data */}
-          <p className="App-intro">{express ? this.state.express : 'loading'}</p>
-          <p className="App-Company">name: { companyInfo ? this.state.companyInfo.name : 'loading'}</p>
-          <p className="App-Company">location: {companyInfo ? this.state.companyInfo.location : 'loading'}</p>
-          <br/>
-          {images ? <SlideShow key={0} images={images}/>/*this._renderSlideShow()*/ : 'slide'}
-        </header>
-      </div>
+      <React.Fragment>
+        <ShrinkNavbar></ShrinkNavbar>
+        <div className="App">
+          <header className="App-header">
+            <img src={logo} className="App-logo" alt="logo" />
+            {/* Render the newly fetched data inside of this.state.data */}
+            <p className="App-intro">{express ? this.state.express : 'loading'}</p>
+            <p className="App-Company">name: { companyInfo ? this.state.companyInfo.name : 'loading'}</p>
+            <p className="App-Company">location: {companyInfo ? this.state.companyInfo.location : 'loading'}</p>
+            <br/>
+            {images ? <SlideShow key={0} images={images}/>/*this._renderSlideShow()*/ : 'slide'}
+          </header>
+        </div>
+      </React.Fragment>
     );
   }
 }

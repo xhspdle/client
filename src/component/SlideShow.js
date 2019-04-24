@@ -12,7 +12,7 @@ class SlideShow extends Component {
         images: PropTypes.array.isRequired
     }
     state = {
-        isLoading: false
+        //isLoading: false
     }
 
     componentDidMount() {

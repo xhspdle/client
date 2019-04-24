@@ -4,7 +4,15 @@
 $backColor: #282c34;
 $linkColor: #61dafb;
 
+body {
+    background-color: $backColor;
+    transition: 1s;
+    @include media(">phone", "<=tablet"){
+        background-color: $oc-cyan-8;
+    }
+}
 .App {
+    margin-top: 209px;
     text-align: center;
     p {
         margin-block-start: 0.25em;

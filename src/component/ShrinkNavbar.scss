@@ -1,0 +1,81 @@
+@import '~include-media/dist/include-media';
+@import '~open-color/open-color';
+
+$backColor: #282c34;
+$linkColor: #61dafb;
+
+#navbar {
+    overflow: hidden;
+    background-color: black;
+    padding: 90px 10px; /* Large padding which will shrink on scroll (using JS) */
+    transition: 0.4s; /* Adds a transition effect when the padding is decreased */
+    position: fixed; /* Sticky/fixed navbar */
+    width: 100%;
+    top: 0; /* At the top */
+    z-index: 99;
+    @include media(">phone", "<=tablet"){
+        padding: 20px 10px !important; /* Use !important to make sure that JavaScript doesn't override the padding on small screens */
+    }
+    a {
+        float: left;
+        color: $oc-gray-5;
+        text-align: center;
+        padding: 12px;
+        text-decoration: none;
+        font-size: 18px;
+        line-height: 25px;
+        border-radius: 4px;
+        transition: 1s;
+        @include media(">phone", "<=tablet"){
+            float: none;
+            display: block;
+            text-align: left;
+        }
+    }
+    a:hover {
+        //color: white;
+        color: $linkColor;
+    }
+    #logo {
+        font-size: 35px;
+        font-weight: bold;
+        transition: 0.4s;
+    }
+    #navbar-right {
+        float: right;
+        margin-right: 5%;
+        @include media(">phone", "<=tablet"){
+            float: none;
+        }
+    }
+    .icon {
+        display: none;
+    }
+}
+@include media(">phone", "<=tablet"){
+    #navbar-right{
+        margin-bottom: -20px;
+    }
+    #navbar-right a:not(:first-child) {display: none;}
+    #navbar-right a.icon{
+        // float: right;
+        // display: block;
+        position: relative;
+        top: -37.5px;
+        left: 90%;
+        display: inline;
+    }
+}
+@include media(">phone", "<=tablet"){
+    #navbar-right.responsive {position: relative;}
+    #navbar-right.responsive a.icon{
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+    #navbar-right.responsive a {
+        float: none;
+        display: block;
+        text-align: left;
+    }
+}
