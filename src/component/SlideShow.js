@@ -74,7 +74,7 @@ const Slides = (props) => {
     return (
         <div className="Slides fade">
             <div className="numbertext">{props.i+1} / {props.length}</div>
-            <img src={require(`../../static/img/${props.images}.${props.ext}`)} alt={"slide" + props.i+1}/>
+            <img src={require(`../static/img/${props.images}.${props.ext}`)} alt={"slide" + props.i+1}/>
             <div className="text">{"Caption " + parseInt(props.i+1)}</div>
         </div>
     );

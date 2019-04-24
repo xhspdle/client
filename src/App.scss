@@ -3,7 +3,9 @@
 
 $backColor: #282c34;
 $linkColor: #61dafb;
-
+html{
+    scroll-behavior: smooth;
+}
 body {
     background-color: $backColor;
     transition: 1s;

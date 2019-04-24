@@ -1,0 +1,83 @@
+@import '~include-media/dist/include-media';
+@import '~open-color/open-color';
+
+$backColor: #282c34;
+$linkColor: #61dafb;
+
+%parallax {
+    position: relative;
+    opacity: 0.65;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    @include media(">phone", "<=tablet"){
+        background-attachment: scroll;
+    }
+}
+
+.bgimg-1 {
+    @extend %parallax;
+    background-image: url("../static/img/bgimg1.jpg");
+    min-height: 1000px;
+}
+
+.bgimg-2 {
+    @extend %parallax;
+    background-image: url("../static/img/bgimg2.jpg");
+    min-height: 400px;
+}
+
+.bgimg-3 {
+    @extend %parallax;
+    background-image: url("../static/img/bgimg3.jpg");
+    min-height: 400px;
+}
+
+.parall-text{
+    &-bg-w {
+        color: #777;
+        background-color: white;
+        text-align: center;
+        padding: 50px 80px;
+        text-align: justify;
+        h3 {
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            font-size: 20px;
+            text-align: center;
+            color: #111;
+        }
+    }
+    &-bg-b {
+        color: #ddd;
+        background-color: #282E34;
+        text-align: center;
+        padding: 50px 80px;
+        text-align: justify;
+    }
+}
+
+.caption {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 100%;
+    text-align: center;
+    color: #000;
+    span.border {
+        background-color: transparent;
+        color: #f7f7f7;
+        padding: 18px;
+        font-size: 25px;
+        letter-spacing: 10px;
+    }
+    span.border-lined {
+        background-color: #111;
+        color: #fff;
+        padding: 18px;
+        font-size: 25px;
+        letter-spacing: 10px;
+    }
+}
+
