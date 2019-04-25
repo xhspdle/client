@@ -13,6 +13,7 @@ $linkColor: #61dafb;
     width: 100%;
     top: 0; /* At the top */
     z-index: 99;
+    margin-bottom: 80px;
     @include media(">phone", "<=tablet"){
         padding: 20px 10px !important; /* Use !important to make sure that JavaScript doesn't override the padding on small screens */
     }
