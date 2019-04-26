@@ -1,0 +1,27 @@
+@import '~include-media/dist/include-media';
+@import '~open-color/open-color';
+
+$backColor: #282c34;
+$linkColor: #61dafb;
+
+#myVideo {
+    position: relative;
+    right: 0;
+    top: 10%;
+    width: 100%;
+    margin-top: 10%;
+}
+
+.content {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 100%;
+    text-align: center;
+    h1, p {
+        color: white;
+        padding: 20px;
+        font-size: 35px;
+        letter-spacing: 10px;
+    }
+}

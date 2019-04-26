@@ -9,12 +9,18 @@ class ShrinkNavbar extends Component {
     }
     
     _scrollFunction = () => {
+        let logo = document.getElementById("logo");
+        let navbarRight = document.getElementById("navbar-right");
         if(document.body.scrollTop > 80 || document.documentElement.scrollTop > 80){
             document.getElementById("navbar").style.padding = "30px 10px";
-            document.getElementById("logo").style.fontSize = "25px";
+            logo.style.fontSize = "25px";
+            logo.style.opacity = "1";
+            navbarRight.style.opacity = "1";
         }else{
             document.getElementById("navbar").style.padding = "80px 10px";
-            document.getElementById("logo").style.fontSize = "35px";
+            logo.style.fontSize = "35px";
+            logo.style.opacity = "0";
+            navbarRight.style.opacity = "0";
         }
     }
     
@@ -37,7 +43,7 @@ class ShrinkNavbar extends Component {
                     Dev-Jitsu
                     </a>
                     <div className="nav" id="navbar-right">
-                        <a href="#home">Home</a>
+                        <a href="#root">Home</a>
                         <a href="#about">About</a>
                         <a href="#contact">Contact</a>
                         <a href="#icon" className="icon" onClick={(e) => { this._responsiveNav(e)}}>

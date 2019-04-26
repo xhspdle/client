@@ -78,6 +78,9 @@ $linkColor: #61dafb;
         padding: 18px;
         font-size: 25px;
         letter-spacing: 10px;
+        @include media("<=tablet"){
+            display: block;
+        }
     }
 }
 

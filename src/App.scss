@@ -10,7 +10,7 @@ body {
     background-color: $backColor;
     transition: 1s;
     @include media(">phone", "<=tablet"){
-        background-color: $oc-cyan-8;
+        //background-color: $oc-cyan-8;
     }
 }
 .App {
@@ -36,7 +36,7 @@ body {
         color: white;
         transition: 1s;
         @include media(">phone", "<=tablet"){
-            background-color: $oc-cyan-8;
+            //background-color: $oc-cyan-8;
         }
     }
     &-link {

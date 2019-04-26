@@ -5,6 +5,7 @@ import './App.scss';
 import SlideShow from './component/SlideShow';
 import ShrinkNavbar from './component/ShrinkNavbar';
 import ParallaxScroll from './component/ParallaxScroll';
+import VideoSlide from './component/VideoSlide';
 
 class App extends Component {
   state = {
@@ -25,7 +26,9 @@ class App extends Component {
       .then(json => this.setState({companyInfo: {name: json.name, location:json.location}}))
       .catch(err => console.error(err));
     this._callSlideShow()
-      .then(json => this.setState({ images: json }));
+    .then(json => this.setState({ images: json }));
+    /* this._callSlideShow() //static.json파일 자체를 db로 관리하는 방법
+    .then(json => this.setState({ images: json.img })); */
     setTimeout(() => {
       console.log(this.state);
     }, 500);
@@ -48,7 +51,7 @@ class App extends Component {
   }
 
   _callSlideShow = async () => {
-    return await fetch('/slideshow')
+    return await fetch('/slideshow_MySQL'/* '/slideshow */)
       .then(response => response.json())
       //.then(json => json)
       .catch(err => console.error(err));
@@ -59,22 +62,23 @@ class App extends Component {
     return (
       <React.Fragment>
         <ShrinkNavbar></ShrinkNavbar>
-        <div className="App">
+        <VideoSlide></VideoSlide>
+        {/* <div className="App">
           <header className="App-header">
             <img src={logo} className="App-logo" alt="logo" />
             <p className="App-intro">
-              {express ? this.state.express : 'loading'}
+              {express ? express : 'loading'}
             </p>
             <p className="App-Company">
-              name: { companyInfo ? this.state.companyInfo.name : 'loading'}
+              name: { companyInfo ? companyInfo.name : 'loading'}
             </p>
             <p className="App-Company">
-              location: {companyInfo ? this.state.companyInfo.location : 'loading'}
+              location: {companyInfo ? companyInfo.location : 'loading'}
             </p>
             <br/>
             {images ? <SlideShow images={images}/> : 'slide'}
           </header>
-        </div>
+        </div> */}
         <ParallaxScroll></ParallaxScroll>
       </React.Fragment>
     );
