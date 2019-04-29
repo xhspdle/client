@@ -1,0 +1,14 @@
+@import '~include-media/dist/include-media';
+@import '~open-color/open-color';
+
+$backColor: #282c34;
+$linkColor: #61dafb;
+
+%box {
+    box-sizing: border-box;
+}
+
+.ContactUs {
+    @extend %box;
+    border-radius: 5px;
+}
