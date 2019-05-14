@@ -12,17 +12,17 @@ class VideoSlide extends Component {
     componentDidMount(){
         //this._typeLogo();
     }
-    _typeLogo = (n, e) => {
-        const logo = ['D', 'e', 'v', '-', 'J', 'i', 't', 's', 'u'];
-        let type = '';
-        for(let i of logo ){
-            type += i;
-            document.getElementById("typeLogo");
-            setTimeout(() => {}, 500);
-        }
-    }
+    // _typeLogo = (n, e) => {
+    //     const logo = ['D', 'e', 'v', '-', 'J', 'i', 't', 's', 'u'];
+    //     let type = '';
+    //     for(let i of logo ){
+    //         type += i;
+    //         document.getElementById("typeLogo");
+    //         setTimeout(() => {}, 500);
+    //     }
+    // }
     render(){
-        const logo = ['D', 'e', 'v', '-', 'J', 'i', 't', 's', 'u'];
+        //const logo = ['D', 'e', 'v', '-', 'J', 'i', 't', 's', 'u'];
         return (
             <React.Fragment>
                 <video autoPlay muted loop id="myVideo">

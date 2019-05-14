@@ -11,4 +11,54 @@ $linkColor: #61dafb;
 .ContactUs {
     @extend %box;
     border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 10px;
+    &-header {
+        text-align: center;
+    }
+    &-row:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+    &-column {
+        @extend %box;
+        float: left;
+        width: 50%;
+        margin-top: 6px;
+        padding: 20px;
+        img{
+            width: 100%;
+        }
+        input[type=text], input[type=email], textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            margin-top: 6px;
+            margin-bottom: 16px;
+            resize: vertical;
+        }
+        textarea{
+            height: 170px;
+        }
+        input[type=submit] {
+            background-color: $linkColor;//#4CAF50;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            cursor: pointer;
+            transition: 0.4s;
+            @include media("<=tablet"){
+                width: 100%;
+                margin-top: 0;
+            }
+        }
+        input[type=submit]:hover {
+            background-color: darken($linkColor, 20%);//#45a049;
+        }
+        @include media("<=tablet"){
+            width: 100%;
+            margin-top: 0;
+        }
+    }
 }

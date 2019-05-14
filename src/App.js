@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.scss';
 //import { List, Record } from 'immutable';
-import SlideShow from './component/SlideShow';
+//import SlideShow from './component/SlideShow';
 import ShrinkNavbar from './component/ShrinkNavbar';
 import ParallaxScroll from './component/ParallaxScroll';
 import VideoSlide from './component/VideoSlide';
+import ContactUs from './component/ContactUs';
 
 class App extends Component {
   state = {
@@ -58,7 +58,7 @@ class App extends Component {
   }
 
   render() {
-    const { images, companyInfo, express } = this.state;
+    //const { images, companyInfo, express } = this.state;
     return (
       <React.Fragment>
         <ShrinkNavbar></ShrinkNavbar>
@@ -80,6 +80,7 @@ class App extends Component {
           </header>
         </div> */}
         <ParallaxScroll></ParallaxScroll>
+        <ContactUs></ContactUs>
       </React.Fragment>
     );
   }
