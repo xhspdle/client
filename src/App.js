@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import './App.scss';
+import logo from './logo.svg';
 //import { List, Record } from 'immutable';
-//import SlideShow from './component/SlideShow';
+import SlideShow from './component/SlideShow';
 import ShrinkNavbar from './component/ShrinkNavbar';
 import ParallaxScroll from './component/ParallaxScroll';
 import VideoSlide from './component/VideoSlide';
@@ -58,12 +59,12 @@ class App extends Component {
   }
 
   render() {
-    //const { images, companyInfo, express } = this.state;
+    const { images, companyInfo, express } = this.state;
     return (
       <React.Fragment>
         <ShrinkNavbar></ShrinkNavbar>
         <VideoSlide></VideoSlide>
-        {/* <div className="App">
+        <div className="App">
           <header className="App-header">
             <img src={logo} className="App-logo" alt="logo" />
             <p className="App-intro">
@@ -78,7 +79,7 @@ class App extends Component {
             <br/>
             {images ? <SlideShow images={images}/> : 'slide'}
           </header>
-        </div> */}
+        </div>
         <ParallaxScroll></ParallaxScroll>
         <ContactUs></ContactUs>
       </React.Fragment>
