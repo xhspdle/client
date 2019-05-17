@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.scss';
+//import DevLogo from './devlogo.svg';
 //import logo from './logo.svg';
 //import { List, Record } from 'immutable';
 //import SlideShow from './component/SlideShow';
@@ -64,6 +65,7 @@ class App extends Component {
       <React.Fragment>
         <ShrinkNavbar></ShrinkNavbar>
         <VideoSlide></VideoSlide>
+        {/* <img src={DevLogo} className="App-logo" alt="logo"/> */}
         {/* <div className="App">
           <header className="App-header">
             <img src={logo} className="App-logo" alt="logo" />
