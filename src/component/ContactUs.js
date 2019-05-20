@@ -19,8 +19,10 @@ class ContactUs extends Component {
                   throw new Error("Bad response from server");
               }
               return response.json();
-        }).then(json => console.log(json))
-          .catch(err => console.error(err));
+        }).then((json) => {
+            console.log(json);
+            document.contact.reset();
+        }).catch(err => console.error(err));
     }
 
     state = {}
@@ -37,13 +39,13 @@ class ContactUs extends Component {
                         <img src={require('../static/img/map1.PNG')} alt="map"></img>
                     </div>
                     <div className="ContactUs-column">
-                        <form onSubmit={(e) => this.handleSubmit(e)}>
+                        <form onSubmit={(e) => this.handleSubmit(e)} name="contact">
                             <label htmlFor="name">Name</label>
                             <input type="text" id="name" name="name" placeholder="Your name.."></input>
                             <label htmlFor="email">Email</label>
-                            <input type="email" id="email" name="email" placeholder="Your email.."></input>
+                            <input require="true" type="email" id="email" name="email" placeholder="Your email.."></input>
                             <label htmlFor="message">message</label>
-                            <textarea id="message" name="message" placeholder="Write something.."></textarea>
+                            <textarea require="true" id="message" name="message" placeholder="Write something.."></textarea>
                             <input type="submit" value="Submit"></input>
                         </form>
                     </div>
