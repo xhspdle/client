@@ -28,7 +28,7 @@ class App extends Component {
       .then(json => this.setState({companyInfo: {name: json.name, location:json.location}}))
       .catch(err => console.error(err));
     this._callSlideShow()
-    .then(json => this.setState({ images: json }));
+      .then(json => this.setState({ images: json }));
     /* this._callSlideShow() //static.json파일 자체를 db로 관리하는 방법
     .then(json => this.setState({ images: json.img })); */
     setTimeout(() => {
@@ -41,22 +41,27 @@ class App extends Component {
   _callBackendAPI = async () => {
     return await fetch('/express_backend')
       .then(response => response.json())
-      //.then(json => json)
       .catch(err => console.error(err));
   }
 
   _callCompanyInfo = async () => {
     return await fetch('/companyInfo')
       .then(response => response.json())
-      //.then(json => json)
       .catch(err => console.error(err));
   }
 
   _callSlideShow = async () => {
     return await fetch('/slideshow_MySQL'/* '/slideshow */)
       .then(response => response.json())
-      //.then(json => json)
       .catch(err => console.error(err));
+    /*
+    try{
+      let response = await fetch('/slideshow_MySQL');
+      let json = await response.json();
+      this.setState({ images : json });
+    } catch (e) {
+      console.error(e);
+    }*/
   }
 
   render() {
